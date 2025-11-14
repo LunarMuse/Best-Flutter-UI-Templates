@@ -72,6 +72,7 @@ class _NavigationHomeScreenState extends State<NavigationHomeScreen> {
           });
           break;
         default:
+          debugPrint("drawerIndex:${drawerIndex} not support");
           break;
       }
     }

@@ -16,9 +16,7 @@ class _FitnessAppHomeScreenState extends State<FitnessAppHomeScreen>
 
   List<TabIconData> tabIconsList = TabIconData.tabIconsList;
 
-  Widget tabBody = Container(
-    color: FitnessAppTheme.background,
-  );
+  Widget tabBody = Container(color: FitnessAppTheme.background);
 
   @override
   void initState() {
@@ -28,7 +26,9 @@ class _FitnessAppHomeScreenState extends State<FitnessAppHomeScreen>
     tabIconsList[0].isSelected = true;
 
     animationController = AnimationController(
-        duration: const Duration(milliseconds: 600), vsync: this);
+      duration: const Duration(milliseconds: 600),
+      vsync: this,
+    );
     tabBody = MyDiaryScreen(animationController: animationController);
     super.initState();
   }
@@ -51,12 +51,7 @@ class _FitnessAppHomeScreenState extends State<FitnessAppHomeScreen>
             if (!snapshot.hasData) {
               return const SizedBox();
             } else {
-              return Stack(
-                children: <Widget>[
-                  tabBody,
-                  bottomBar(),
-                ],
-              );
+              return Stack(children: <Widget>[tabBody, bottomBar()]);
             }
           },
         ),
@@ -72,9 +67,7 @@ class _FitnessAppHomeScreenState extends State<FitnessAppHomeScreen>
   Widget bottomBar() {
     return Column(
       children: <Widget>[
-        const Expanded(
-          child: SizedBox(),
-        ),
+        const Expanded(child: SizedBox()),
         BottomBarView(
           tabIconsList: tabIconsList,
           addClick: () {},
@@ -85,8 +78,9 @@ class _FitnessAppHomeScreenState extends State<FitnessAppHomeScreen>
                   return;
                 }
                 setState(() {
-                  tabBody =
-                      MyDiaryScreen(animationController: animationController);
+                  tabBody = MyDiaryScreen(
+                    animationController: animationController,
+                  );
                 });
               });
             } else if (index == 1 || index == 3) {
@@ -95,8 +89,9 @@ class _FitnessAppHomeScreenState extends State<FitnessAppHomeScreen>
                   return;
                 }
                 setState(() {
-                  tabBody =
-                      TrainingScreen(animationController: animationController);
+                  tabBody = TrainingScreen(
+                    animationController: animationController,
+                  );
                 });
               });
             }

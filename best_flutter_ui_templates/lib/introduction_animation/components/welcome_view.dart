@@ -3,54 +3,40 @@ import 'package:flutter/material.dart';
 class WelcomeView extends StatelessWidget {
   final AnimationController animationController;
   const WelcomeView({Key? key, required this.animationController})
-      : super(key: key);
+    : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     final _firstHalfAnimation =
         Tween<Offset>(begin: Offset(1, 0), end: Offset(0, 0)).animate(
-      CurvedAnimation(
-        parent: animationController,
-        curve: Interval(
-          0.6,
-          0.8,
-          curve: Curves.fastOutSlowIn,
-        ),
-      ),
-    );
+          CurvedAnimation(
+            parent: animationController,
+            curve: Interval(0.6, 0.8, curve: Curves.fastOutSlowIn),
+          ),
+        );
     final _secondHalfAnimation =
         Tween<Offset>(begin: Offset(0, 0), end: Offset(-1, 0)).animate(
-      CurvedAnimation(
-        parent: animationController,
-        curve: Interval(
-          0.8,
-          1.0,
-          curve: Curves.fastOutSlowIn,
-        ),
-      ),
-    );
+          CurvedAnimation(
+            parent: animationController,
+            curve: Interval(0.8, 1.0, curve: Curves.fastOutSlowIn),
+          ),
+        );
 
     final _welcomeFirstHalfAnimation =
-        Tween<Offset>(begin: Offset(2, 0), end: Offset(0, 0))
-            .animate(CurvedAnimation(
-      parent: animationController,
-      curve: Interval(
-        0.6,
-        0.8,
-        curve: Curves.fastOutSlowIn,
-      ),
-    ));
+        Tween<Offset>(begin: Offset(2, 0), end: Offset(0, 0)).animate(
+          CurvedAnimation(
+            parent: animationController,
+            curve: Interval(0.6, 0.8, curve: Curves.fastOutSlowIn),
+          ),
+        );
 
     final _welcomeImageAnimation =
-        Tween<Offset>(begin: Offset(4, 0), end: Offset(0, 0))
-            .animate(CurvedAnimation(
-      parent: animationController,
-      curve: Interval(
-        0.6,
-        0.8,
-        curve: Curves.fastOutSlowIn,
-      ),
-    ));
+        Tween<Offset>(begin: Offset(4, 0), end: Offset(0, 0)).animate(
+          CurvedAnimation(
+            parent: animationController,
+            curve: Interval(0.6, 0.8, curve: Curves.fastOutSlowIn),
+          ),
+        );
     return SlideTransition(
       position: _firstHalfAnimation,
       child: SlideTransition(
@@ -78,8 +64,12 @@ class WelcomeView extends StatelessWidget {
                 ),
               ),
               Padding(
-                padding:
-                    EdgeInsets.only(left: 64, right: 64, top: 16, bottom: 16),
+                padding: EdgeInsets.only(
+                  left: 64,
+                  right: 64,
+                  top: 16,
+                  bottom: 16,
+                ),
                 child: Text(
                   "Stay organised and live stress-free with you-do app",
                   textAlign: TextAlign.center,

@@ -4,7 +4,7 @@ import 'hotel_app_theme.dart';
 
 class SliderView extends StatefulWidget {
   const SliderView({Key? key, this.onChangedistValue, this.distValue})
-      : super(key: key);
+    : super(key: key);
 
   final Function(double)? onChangedistValue;
   final double? distValue;
@@ -29,10 +29,7 @@ class _SliderViewState extends State<SliderView> {
         children: <Widget>[
           Row(
             children: <Widget>[
-              Expanded(
-                flex: distValue.round(),
-                child: const SizedBox(),
-              ),
+              Expanded(flex: distValue.round(), child: const SizedBox()),
               Container(
                 width: 170,
                 child: Text(
@@ -40,16 +37,11 @@ class _SliderViewState extends State<SliderView> {
                   textAlign: TextAlign.center,
                 ),
               ),
-              Expanded(
-                flex: 100 - distValue.round(),
-                child: const SizedBox(),
-              ),
+              Expanded(flex: 100 - distValue.round(), child: const SizedBox()),
             ],
           ),
           SliderTheme(
-            data: SliderThemeData(
-              thumbShape: CustomThumbShape(),
-            ),
+            data: SliderThemeData(thumbShape: CustomThumbShape()),
             child: Slider(
               onChanged: (double value) {
                 setState(() {
@@ -110,15 +102,21 @@ class CustomThumbShape extends SliderComponentShape {
       end: sliderTheme?.thumbColor,
     );
     canvas.drawPath(
-        Path()
-          ..addOval(Rect.fromPoints(
-              Offset(thumbCenter.dx + 12, thumbCenter.dy + 12),
-              Offset(thumbCenter.dx - 12, thumbCenter.dy - 12)))
-          ..fillType = PathFillType.evenOdd,
-        Paint()
-          ..color = Colors.black.withOpacity(0.5)
-          ..maskFilter =
-              MaskFilter.blur(BlurStyle.normal, convertRadiusToSigma(8)));
+      Path()
+        ..addOval(
+          Rect.fromPoints(
+            Offset(thumbCenter.dx + 12, thumbCenter.dy + 12),
+            Offset(thumbCenter.dx - 12, thumbCenter.dy - 12),
+          ),
+        )
+        ..fillType = PathFillType.evenOdd,
+      Paint()
+        ..color = Colors.black.withOpacity(0.5)
+        ..maskFilter = MaskFilter.blur(
+          BlurStyle.normal,
+          convertRadiusToSigma(8),
+        ),
+    );
 
     final Paint cPaint = Paint();
     cPaint..color = Colors.white;

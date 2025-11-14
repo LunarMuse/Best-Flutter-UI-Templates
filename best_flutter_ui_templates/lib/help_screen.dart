@@ -21,15 +21,17 @@ class _HelpScreenState extends State<HelpScreen> {
       child: SafeArea(
         top: false,
         child: Scaffold(
-          backgroundColor:
-              isLightMode ? AppTheme.nearlyWhite : AppTheme.nearlyBlack,
+          backgroundColor: isLightMode
+              ? AppTheme.nearlyWhite
+              : AppTheme.nearlyBlack,
           body: Column(
             children: <Widget>[
               Container(
                 padding: EdgeInsets.only(
-                    top: MediaQuery.of(context).padding.top,
-                    left: 16,
-                    right: 16),
+                  top: MediaQuery.of(context).padding.top,
+                  left: 16,
+                  right: 16,
+                ),
                 child: Image.asset('assets/images/helpImage.png'),
               ),
               Container(
@@ -37,9 +39,10 @@ class _HelpScreenState extends State<HelpScreen> {
                 child: Text(
                   'How can we help you?',
                   style: TextStyle(
-                      fontSize: 20,
-                      fontWeight: FontWeight.bold,
-                      color: isLightMode ? Colors.black : Colors.white),
+                    fontSize: 20,
+                    fontWeight: FontWeight.bold,
+                    color: isLightMode ? Colors.black : Colors.white,
+                  ),
                 ),
               ),
               Container(
@@ -48,8 +51,9 @@ class _HelpScreenState extends State<HelpScreen> {
                   'It looks like you are experiencing problems\nwith our sign up process. We are here to\nhelp so please get in touch with us',
                   textAlign: TextAlign.center,
                   style: TextStyle(
-                      fontSize: 16,
-                      color: isLightMode ? Colors.black : Colors.white),
+                    fontSize: 16,
+                    color: isLightMode ? Colors.black : Colors.white,
+                  ),
                 ),
               ),
               Expanded(
@@ -61,13 +65,15 @@ class _HelpScreenState extends State<HelpScreen> {
                       height: 40,
                       decoration: BoxDecoration(
                         color: isLightMode ? Colors.blue : Colors.white,
-                        borderRadius:
-                            const BorderRadius.all(Radius.circular(4.0)),
+                        borderRadius: const BorderRadius.all(
+                          Radius.circular(4.0),
+                        ),
                         boxShadow: <BoxShadow>[
                           BoxShadow(
-                              color: Colors.grey.withOpacity(0.6),
-                              offset: const Offset(4, 4),
-                              blurRadius: 8.0),
+                            color: Colors.grey.withOpacity(0.6),
+                            offset: const Offset(4, 4),
+                            blurRadius: 8.0,
+                          ),
                         ],
                       ),
                       child: Material(
@@ -81,8 +87,9 @@ class _HelpScreenState extends State<HelpScreen> {
                                 'Chat with Us',
                                 style: TextStyle(
                                   fontWeight: FontWeight.w500,
-                                  color:
-                                      isLightMode ? Colors.white : Colors.black,
+                                  color: isLightMode
+                                      ? Colors.white
+                                      : Colors.black,
                                 ),
                               ),
                             ),
@@ -92,7 +99,7 @@ class _HelpScreenState extends State<HelpScreen> {
                     ),
                   ),
                 ),
-              )
+              ),
             ],
           ),
         ),
